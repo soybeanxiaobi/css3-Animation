@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3弹窗动画</title>
+    <style>
+        /*********** 页面样式 **********/
+
+        /*button样式*/
+        .btnDiv{
+            text-align: center;
+        }
+        .openPopUpBtn,.closePopUpBtn{
+            width:60px;
+            height:40px;
+            line-height:40px;
+            border:1px solid #c9c9c9;
+            background-color: #FFF;
+            box-shadow: 1px 1px 1px 1px #eee;
+        }
+        .openPopUpBtn{
+            margin-top:100px;
+        }
+        .openPopUpBtn:hover,.closePopUpBtn:hover{
+            background-color: #eee;
+            cursor:pointer;
+        }
+
+        /*弹框样式*/
+        .popUp{
+            width:600px;
+            height:500px;
+            text-align: center;
+            background-color: #FFFeee;
+            border:1px solid #ccc;
+            box-shadow: 1px 1px 1px 1px #eee;            
+            position:absolute;
+            left:50%;
+            margin-left:-300px;
+            opacity: 0; /* 透明度为0 */
+        }
+
+        .closePopUpBtn{
+            position: absolute;
+            bottom:20px;
+            left:50%;
+            transform:translate(-50%);
+        }
+        /*******************************/
+
+        /*********** 添加动画的样式(重点！) **********/
+        
+        /*定义样式*/
+        #showCont{
+            animation: showPopUp 1s;
+
+            animation-fill-mode: forwards; /*保持动画后的状态*/
+        }
+
+        #hiddenCont{
+            animation: hiddenPopUp 1s;
+            animation-fill-mode: forwards;
+        }
+
+        /*定义动画*/
+        @keyframes showPopUp{
+            0%{
+                opacity: 0;
+                top:-50%;
+                transform: rotateZ(0deg);
+            }
+            50%{
+                transform: rotateZ(-10deg);
+            }
+            100%{
+                opacity: 1;
+                top:20%;
+                transform: rotateZ(0deg);
+            }
+        }
+
+        @keyframes hiddenPopUp{
+            0%{
+                opacity: 1;
+                top:20%;
+                transform: rotateZ(0deg);
+            }
+            50%{
+                transform: rotateZ(-10deg);
+            }
+            100%{
+                opacity: 0;
+                top:-50%;
+                transform: rotateZ(0deg);
+            }
+        }
+        
+        /*******************************************/
+    </style>
+</head>
+<body>
+    <div class="btnDiv">
+        <button class="openPopUpBtn" id="openBtn">弹窗</button>     
+    </div>
+
+    <div class="popUp">
+        <p>我是弹窗内容</p>
+        <button class="closePopUpBtn" id="closeBtn">关闭</button>
+    </div>
+
+    <script>
+        window.onload = function(){
+            var popUp = document.getElementsByClassName('popUp');
+            var openBtn = document.getElementById('openBtn');
+            var closeBtn = document.getElementById('closeBtn');
+
+            openBtn.onclick = function(){
+                popUp[0].setAttribute('id','showCont');
+            }
+
+            closeBtn.onclick = function(){
+                popUp[0].setAttribute('id','hiddenCont');                
+            }
+
+        }
+    </script>
+</body>
+</html>

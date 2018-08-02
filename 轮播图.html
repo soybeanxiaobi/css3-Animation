@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+        }
+        .carousel{
+            width:100px;
+            height:100px;
+            position:relative;
+            left:400px;
+            top:100px;
+            overflow: hidden;
+        }
+        .items{
+            color:#FFF;
+            width:420px;
+            position:absolute;
+            left:0px;
+            animation:carouselMove 3s infinite;
+            animation-direction: normal;
+            /*animation-timing-function:easy 规定动画运动的速度 animation-iteration-count:infinite 播放无数次*/
+            -webkit-animation:carouselMove 3s infinite;
+            -moz-animation-direction: normal;
+        }
+        .item1,.item2,.item3{
+            width:100px;
+            height:100px;
+            float:left;
+        }
+        .item1{
+            background-color: #12B7F5;
+        }
+        .item2{
+            background-color: #F9B041;
+        }
+        .item3{
+            background-color: #CCCCCC;
+        }
+
+        @keyframes carouselMove{
+            0%{
+                left:0px;
+            }
+            35%{
+                left:-100px;
+            }
+            70%{
+                left:-200px;
+            }
+            100%{
+                left:-300px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+        <div class="carousel">
+            <div class="items">
+                <div class="item1">轮播1</div>
+                <div class="item2">轮播2</div>
+                <div class="item3">轮播3</div>
+                <div class="item1">轮播4</div>
+            </div>
+        </div>
+
+</body>
+</html>
