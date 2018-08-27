@@ -329,5 +329,5 @@ window.onload = function(){
 
 以上就是CSS3动画的部分知识啦！谢谢！  
 需要源码的可以到这里下载:  
-https://github.com/soybeanxiaobi/css3-
+https://github.com/soybeanxiaobi/css3-Animation
 
